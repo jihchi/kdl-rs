@@ -61,13 +61,15 @@
 use nom::combinator::all_consuming;
 use nom::Finish;
 
-pub use crate::error::{KdlError, KdlErrorKind, TryFromKdlNodeValueError};
+pub use crate::error::{KdlError, KdlErrorKind, KdlSchemaError, TryFromKdlNodeValueError};
 pub use crate::node::{KdlNode, KdlValue};
+pub use crate::schema::KdlSchema;
 
 mod error;
 mod node;
 mod nom_compat;
 mod parser;
+mod schema;
 
 /// Parse a KDL document from a string into a list of [`KdlNode`]s.
 ///

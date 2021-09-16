@@ -92,3 +92,11 @@ impl<'a> FromExternalError<&'a str, ParseFloatError> for KdlParseError<&'a str> 
         }
     }
 }
+
+#[derive(Debug, Clone, Eq, PartialEq, Error)]
+pub enum KdlSchemaError {
+    #[error(transparent)]
+    KdlError(#[from] KdlError),
+    #[error("Schema document did not conform to KDL Schema specification.")]
+    SchemaComplianceError(Box<KdlSchemaError>),
+}
