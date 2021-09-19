@@ -655,6 +655,24 @@ mod tests {
                 })
             ))
         );
+
+        assert_eq!(
+            node("node { child }"),
+            Ok((
+                "",
+                Some(KdlNode {
+                    name: "node".into(),
+                    values: Vec::new(),
+                    properties: HashMap::new(),
+                    children: vec![KdlNode {
+                        name: "child".into(),
+                        values: Vec::new(),
+                        properties: HashMap::new(),
+                        children: Vec::new()
+                    }]
+                })
+            ))
+        );
     }
 
     #[test]
