@@ -675,7 +675,7 @@ mod tests {
         );
 
         assert_eq!(
-            node("node { child1{ child2; } }"),
+            node("node { child1 { child2 } }"),
             Ok((
                 "",
                 Some(KdlNode {
